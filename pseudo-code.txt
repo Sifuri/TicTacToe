@@ -1,0 +1,57 @@
+Pseudo-Code
+
+Game Default: 
+ *Whoever goes first is 'X'
+ 
+- Select Start or Quit***
+-   if start: display instructions ---beta---
+-      select: Human Vs Machine or Human Vs Human***
+-        if Human Vs CPU
+          select mode: Novice, Intermediate, Advance***
+            If either
+              select: Go first, Go second ---- beta-----
+                if either
+                  -assign symbols to users 
+                  -create empty board
+                  -display board
+                  -unless someone wins 
+                    -if it's the humans turn
+                       prompt the human for their choice 
+                       update the board with the users choice
+                    -else
+                      calculate the CPU's choice
+                      update the board with the CPU's choice
+                    end
+                    -display the board
+                    -switch turns
+                  -Congratulate the victor or declare a tie
+                  -Prompt user to play again? or quit
+        else(HvsH):
+                  Determine "Who goes first?" : Player 1 or Player 2
+                  If either
+                    assign symbols to users based on selection
+                    create empty board
+                    display board
+                   -unless someone wins
+                       -if its player 1 turn
+                           prompt for choice
+                           update board with choice (X)
+                       else
+                         prompt for choice
+                         update board with choice (O)
+                       end
+                       display board
+                       switch turns
+                     -Congratulate the victor or declare a tie
+                     -Prompt user to play again or quit
+      else: 
+          exit program
+             
+                    
+
+Object Oriented Path:
+
+Create a human class with methods for moving
+Create a Machine class with methods for moving, and assuming various levels of skill {novice, intermediate, advance}
+Create a Game_Board class with methods for {New Board, Display Board}
+Create an Instructor or Referee class with methods for {Starting game, display instructions, congratulate winner, play_again? }
