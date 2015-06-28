@@ -24,26 +24,26 @@ class GameBoard
   def free_moves(options)
     moves = []
     SPACES.times do |s|
-      unless board[s] != s
+      unless options[s] != s
         moves << s
       end
     end 
+    moves
   end
 
 # Verify if the board has a winner, tie, or neither 
-  def verify(board)
+  def verify(options)
     # Check the board to see if there are 'X' or 'O' values in a row
     SOLUTIONS.each do |s|
-      if board[s[0]] == board[s[1]] and board[s[1]] == board[s[2]]
-        return board[s[0]]
+      if options[s[0]] == options[s[1]] and options[s[1]] == options[s[2]]
+        return options[s[0]]
       end
     end
     # If no one has won, check to see if there are any free spaces, if not declare tie
-    unless board.all? {|i| i.is_a? Fixnum }
-      return "Tie"
+    unless options.all? {|i| i.is_a? String }
+      return false
+    else
+      "Tie"
     end
-    # No wins or ties, therefore game should resume.
-    nil 
   end
-
 end

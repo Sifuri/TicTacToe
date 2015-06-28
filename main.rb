@@ -22,33 +22,36 @@ SOLUTIONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 OPTIMAL_SPACES = [4,0,2,6,8,1,3,5,7]
 
 
-ref = Instructor.new
-board = GameBoard.new
-
+REF = Instructor.new
+BOARD = GameBoard.new
+options = BOARD.options
 
 puts "\t\t\tTic-Tac-Toe \n\n"
 
-puts board.show
+puts BOARD.show
 
-ref.show_rules
-if ref.play?
-  ref.choose_turn
+REF.show_rules
+if REF.play?
+  REF.choose_turn
   turn = X
-  puts board.show
+  puts BOARD.show
   
   # All working above
-  unless board.verify(board.options)
+  until BOARD.verify(options)
     if turn == P1.role
-      move = P1.move(board.options, P1.role)
-      board.options[move] = P1.role
+      
+      move = P1.move(options, P1.role)
+      options[move] = P1.role
     else
-      move = CPU.move(board.options, P1.role, CPU.role)
-      board.options[move] = CPU.role
-      puts board.show
-      turn = switch_turn(turn)
+      move = CPU.move(options, P1.role, CPU.role)
+      options[move] = CPU.role
     end
+    
+    puts BOARD.show
+    turn = REF.switch_turn(turn)
   end
-  ref.show_winner(board.verify, CPU.role, P1.role)
+
+  REF.show_winner(BOARD.verify(options))
   
 end
       
