@@ -54,4 +54,13 @@ Object Oriented Path:
 Create a human class with methods for moving
 Create a Machine class with methods for moving, and assuming various levels of skill {novice, intermediate, advance}
 Create a Game_Board class with methods for {New Board, Display Board}
-Create an Instructor or Referee class with methods for {Starting game, display instructions, congratulate winner, play_again? }
+Create an Instructor or Referee class with methods for {Starting game, display instructions, determining winner, play_again? }
+
+
+AI Strategy:
+
+All AI modes should initially evaluate whether the machine or human can win the next turn. Second line of reasoning will distinguish AI modes by selecting open spaces randomly, choosing non-random spaces, and selecting non-random quality spaces.
+
+Novice: Choose random spaces
+Intermediate: Choose non-random spaces
+Advanced: Choose "optimal" spaces

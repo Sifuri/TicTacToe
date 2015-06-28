@@ -39,7 +39,7 @@ class GameBoard
       end
     end
     # If no one has won, check to see if there are any free spaces, if not declare tie
-    unless board.all? {|i| i.is_a Fixnum }
+    unless board.all? {|i| i.is_a? Fixnum }
       return "Tie"
     end
     # No wins or ties, therefore game should resume.

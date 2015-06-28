@@ -41,6 +41,14 @@ class Instructor
     end
   end
   
+  def switch_turn(turn)
+    if turn == "X"
+      return "O"
+    else
+      return "X"
+    end
+  end
+      
   def req_num(question,low,high)
     # Ask for a number within a range - edit
     # between? does exclude low or high
@@ -63,6 +71,11 @@ class Instructor
     #Determine if the machine is "Novice, Intermediate, or Advanced"
   end
   
-  def show_congrats
+  def show_winner(winner, cpu_role, human_role)
+    unless winner == "Tie"
+      puts "#{winner}, wins!"
+    else
+      puts "It's a tie!"
+    end
   end
 end
