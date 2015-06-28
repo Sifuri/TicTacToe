@@ -6,8 +6,6 @@ class Human
     free = BOARD.free_moves(options)
     choice = nil
     
-    #----
-    
     until free.include? choice 
       choice = REF.req_num("Choose your next move:", 0, SPACES)
       unless free.include? choice

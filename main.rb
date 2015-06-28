@@ -36,7 +36,6 @@ if REF.play?
   turn = X
   puts BOARD.show
   
-  # All working above
   until BOARD.verify(options)
     if turn == P1.role
       
