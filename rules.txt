@@ -7,5 +7,5 @@ The game is played with two board pieces, 'X' and 'O', the player to go first wi
 
 The objective is for each player to align 3 of their pieces diagonally, in a row, or column. The first player to do so, wins. If the board is filled with all pieces and no player has won, the game will be declared a tie. 
 
-Above is a display of the Tic Tac Toe board with each empty space numbered 0-8, selecting a number from this range during gameplay will replace the empty space with the players game piece.
+Above is a display of the Tic Tac Toe board with each empty space numbered 0-8, selecting a number from this range during gameplay will replace the numbered space with the players game piece.
 
