@@ -1,4 +1,5 @@
 class Instructor
+  # Open and present the rules of the game.
     def show_rules
       File.open('./rules.txt', 'r') do |f|
         f.each_line do |line|
@@ -6,7 +7,8 @@ class Instructor
         end
       end
     end
-
+  
+  # determine if the user wants to play
     def play?
       loop do 
         puts "Are you ready to start?(y/n)"
@@ -20,25 +22,24 @@ class Instructor
       end
     end
 
+  # determine which player will go first
     def choose_turn
-      # return
-      #default is human vs cpu, later human 1 vs human 2
-      x = req_num("Who goes first? (1) Human (2) CPU",1,2)
+      x = req_num("Who goes first? (1) Player 1 (2) Player 2",1,2)
 
-      # where it says Player 1 can use string interpolation when Human vs Human
       if x == 1
         puts "Player1: X"
-        puts "Machine: O"
+        puts "Player2: O"
         P1.role = X
-        CPU.role = O
+        $P2.role = O
       else
-       puts("Machine: X")
+       puts("Player2: X")
        puts("Player1: O")   
-       CPU.role = X
+       $P2.role = X
        P1.role = O
       end
     end
 
+  # switch and keep track of the whose turn it is
     def switch_turn(turn)
       if turn == "X"
         return "O"
@@ -47,9 +48,9 @@ class Instructor
       end
     end
 
+  # request number from user within a range
     def req_num(question,low,high)
-      # Ask for a number within a range - edit
-      # between? does exclude low or high
+      # Ask for a number within a range 
       response = low-1
       until response.between?(low,high)
           puts question
@@ -58,12 +59,15 @@ class Instructor
       return response
     end
 
-
-
-
-
+  #Determine if the game mode is Human vs Machine or Human vs Human
     def mode
-      #Determine if the game mode is Human vs Machine or Human vs Human
+      x = REF.req_num("Play:\t(1) Human Vs. Machine\n\t(2) Human Vs. Human",1,2)
+      if x == 1
+        $P2 = Machine.new
+      else
+        $P2 = Human.new
+      end
+      x
     end
 
     def level

@@ -4,12 +4,13 @@ Game Default:
  *Whoever goes first is 'X'
  
 - Select Start or Quit***
--   if start: display instructions ---beta---
--      select: Human Vs Machine or Human Vs Human***
--        if Human Vs CPU
+-   if start: display instructions
+-      prompt: Human Vs Machine or Human Vs Human***
+-        if Human Vs Machines
+          assign gloval variable P2 to machine object
           select mode: Novice, Intermediate, Advance***
             If either
-              select: Go first, Go second ---- beta-----
+              select: Go first, Go second 
                 if either
                   -assign symbols to users 
                   -create empty board
@@ -26,26 +27,13 @@ Game Default:
                     -switch turns
                   -Congratulate the victor or declare a tie
                   -Prompt user to play again? or quit
-        else(HvsH):
-                  Determine "Who goes first?" : Player 1 or Player 2
-                  If either
-                    assign symbols to users based on selection
-                    create empty board
-                    display board
-                   -unless someone wins
-                       -if its player 1 turn
-                           prompt for choice
-                           update board with choice (X)
-                       else
-                         prompt for choice
-                         update board with choice (O)
-                       end
-                       display board
-                       switch turns
-                     -Congratulate the victor or declare a tie
-                     -Prompt user to play again or quit
-      else: 
-          exit program
+               elsif Human Vs Human
+                        assign global variable p2 to human instance
+                        ......
+                        ......
+                        ......
+       elsif quit: 
+          exit game
              
                     
 

@@ -3,9 +3,16 @@ class Human
   
   # Requesting and returning the players move 
   def move(options, role)
+    #capture all available board moves
     free = BOARD.free_moves(options)
     choice = nil
     
+<<<<<<< HEAD
+=======
+    #check if the users choice is in the array
+    #of available moves, if not prompt for another
+    #number
+>>>>>>> HvsH
     until free.include? choice 
       choice = REF.req_num("Choose your next move:", 0, SPACES)
       unless free.include? choice
@@ -41,7 +48,7 @@ class Machine
         puts s
         return s
       end
-      # undo assignment after verify
+      # undo assignment after verification
       options[s] = s
     end
     # Choose best available spaces
