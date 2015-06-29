@@ -27,7 +27,7 @@ class Machine
   attr_accessor :role
   
   # Determine if CPU can win the next move
-  def move(options, human_role, cpu_role)
+  def move(options, human_role, cpu_role, skill)
     open_spaces = BOARD.free_moves(options)
     open_spaces.each do |s|
       options[s] = cpu_role
@@ -35,7 +35,6 @@ class Machine
         puts s
         return s
       end
-      # undo assignment after verify
       options[s] = s
     end
     
@@ -46,11 +45,11 @@ class Machine
         puts s
         return s
       end
-      # undo assignment after verification
       options[s] = s
     end
+    
     # Choose best available spaces
-    OPTIMAL_SPACES.each do |s|
+    skill.each do |s|
       if open_spaces.include? s
         puts s
         return s

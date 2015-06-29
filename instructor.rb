@@ -12,7 +12,7 @@ class Instructor
     def play?
       loop do 
         puts "Are you ready to start?(y/n)"
-        answer = gets.chomp
+        answer = gets.chomp.downcase
         if answer == 'y' 
           return true
         elsif answer == 'n'
@@ -72,6 +72,14 @@ class Instructor
 
     def level
       #Determine if the machine is "Novice, Intermediate, or Advanced"
+      lvl = REF.req_num("Play:\t(1) Novice\n\t(2) Intermediate\n\t(3) Advanced",1,3)
+      if lvl == 1
+        $skill = NOVICE_SPACES
+      elsif lvl == 2
+        $skill = BETTER_SPACES
+      else
+        $skill = OPTIMAL_SPACES
+      end
     end
 
     def show_winner(winner)

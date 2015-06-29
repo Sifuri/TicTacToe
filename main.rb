@@ -19,9 +19,11 @@ SPACES = 9
 # An array of all the ways a player can win. 
 SOLUTIONS = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
 
-# An array of optimal spaces the CPU AI may take after the first lvl reasoning.
-OPTIMAL_SPACES = [4,0,2,6,8,1,3,5,7]
+# An array of optimal spaces the AI may take after the first lvl of reasoning.
 
+OPTIMAL_SPACES = [4,0,2,6,8,1,3,5,7]
+NOVICE_SPACES = OPTIMAL_SPACES.shuffle
+BETTER_SPACES = OPTIMAL_SPACES.reverse
 
 REF = Instructor.new
 BOARD = GameBoard.new
@@ -37,6 +39,8 @@ puts BOARD.show
 REF.show_rules
 if REF.play?
     REF.mode
+  # set machine level to novice, intermediate, or advance
+    REF.level if $P2.instance_of? Machine
     REF.choose_turn
     turn = X
     puts BOARD.show
@@ -50,7 +54,7 @@ if REF.play?
         move = $P2.move(options, $P2.role)
         options[move] = $P2.role
       else
-        move = $P2.move(options, P1.role, $P2.role)
+        move = $P2.move(options, P1.role, $P2.role, $skill)
         options[move] = $P2.role
       end
       puts BOARD.show
