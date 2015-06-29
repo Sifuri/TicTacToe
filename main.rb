@@ -41,16 +41,6 @@ if REF.play?
     turn = X
     puts BOARD.show
   
-<<<<<<< HEAD
-  until BOARD.verify(options)
-    if turn == P1.role
-      
-      move = P1.move(options, P1.role)
-      options[move] = P1.role
-    else
-      move = CPU.move(options, P1.role, CPU.role)
-      options[move] = CPU.role
-=======
   #game session
     until BOARD.verify(options)
       if turn == P1.role
@@ -63,10 +53,8 @@ if REF.play?
         move = $P2.move(options, P1.role, $P2.role)
         options[move] = $P2.role
       end
-
       puts BOARD.show
       turn = REF.switch_turn(turn)
->>>>>>> HvsH
     end
     
     #end game - declare winner or tie
@@ -74,8 +62,6 @@ if REF.play?
 end
       
       
-  
-
 
 
 

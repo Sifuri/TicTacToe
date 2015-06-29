@@ -7,12 +7,10 @@ class Human
     free = BOARD.free_moves(options)
     choice = nil
     
-<<<<<<< HEAD
-=======
+
     #check if the users choice is in the array
     #of available moves, if not prompt for another
     #number
->>>>>>> HvsH
     until free.include? choice 
       choice = REF.req_num("Choose your next move:", 0, SPACES)
       unless free.include? choice
